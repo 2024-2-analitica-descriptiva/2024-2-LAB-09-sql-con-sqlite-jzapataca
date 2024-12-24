@@ -33,11 +33,19 @@
 --  (columna c23).
 --
 --  Rta/
---     YEAR    avg(c21)
---  0  2016  564.476429
---  1  2017  515.156364
---  2  2018  557.559375
---  3  2019  550.998571
+--     "strftime('%Y', c23)"  "avg(c21)"
+--  0  2016  564.4764285714285
+--  1  2017  515.1563636363636
+--  2  2018  557.5593749999999
+--  3  2019  550.9985714285714
 --
---  >>> Escriba su codigo a partir de este punto <<<
---
+--  >>> Escriba su codigo a partir de este punto <<<\
+SELECT
+    strftime('%Y', c23) AS "strftime('%Y', c23)", 
+    AVG(c21) AS 'avg(c21)'
+FROM 
+    tbl2
+GROUP BY 
+    strftime('%Y', c23)
+ORDER BY 
+    strftime('%Y', c23);
